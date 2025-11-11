@@ -1,15 +1,13 @@
-# C Project Template
+Balls and Their Admirers
 
-This is a template for a new C project.
+This is a small graphical simulation made with C and raylib.
 
-## Structure
-- `src/`: Source code files
-- `.vscode/`: VSCode configuration
-- `*.out`: Compiled executable
+Description
 
-## Usage
-- Open in VSCode
-- Use `Tasks: Run Build Task` (or `Ctrl+Shift+B`) to compile
-- Use `Run C Program` task to execute the compiled program
-- Use `Build and Run C Program` task to compile and run in one step
-- Use `Debug` (or `F5`) to run with debugger
+100 colorful balls move around the screen.
+
+Each ball randomly follows another ball it “admires.”
+
+Balls bounce off the edges of the window.
+
+The simulation shows how balls cluster together over time.
