@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "Build Raylib C Program (macOS)",
+      "command": "gcc",
+      "args": [
+        "src/main.c",
+        "-o",
+        "balls.out",
+        "-lraylib",
+        "-lm",
+        "-lpthread",
+        "-ldl",
+        "-framework",
+        "OpenGL",
+        "-framework",
+        "Cocoa",
+        "-framework",
+        "IOKit",
+        "-framework",
+        "CoreVideo"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Compiles the C file and links Raylib and required macOS frameworks."
+    },
+    {
+      "type": "shell",
+      "label": "Build C Program",
+      "command": "gcc",
+      "args": [
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out",
+        "-g"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Compiles the currently open C file using gcc with debug symbols."
+    },
+    {
+      "type": "shell",
+      "label": "Run C Program",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": "test",
+      "detail": "Runs the compiled C program."
+    },
+    {
+      "type": "shell",
+      "label": "Build and Run C Program",
+      "command": "gcc",
+      "args": [
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out",
+        "&&",
+        "${fileDirname}/${fileBasenameNoExtension}.out"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "Compiles and runs the currently open C file using gcc."
+    },
+    {
+      "type": "shell",
+      "label": "Run Last Built Program",
+      "command": "${workspaceFolder}/balls.out",
+      "group": "test",
+      "detail": "Runs the last built Raylib program (balls.out in workspace root)."
+    },
+    {
+      "type": "shell",
+      "label": "Run C Program (Universal)",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "group": "test",
+      "detail": "Runs the compiled C program for the currently open file."
+    }
+  ]
+}
